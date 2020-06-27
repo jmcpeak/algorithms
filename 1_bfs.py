@@ -63,6 +63,8 @@ def walkAllEdges(graph):
 
 
 walkAllEdges(graph)
+# output::
+
 # Computation starting from edge a; All path will lead to edge a
 # ['0:: a', '1:: s->a', '1:: z->a', '2:: x->s->a', '3:: d->x->s->a', '3:: c->x->s->a', '4:: f->d->x->s->a', '4:: v->c->x->s->a']
 # Computation starting from edge s; All path will lead to edge s
