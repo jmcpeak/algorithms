@@ -1,4 +1,4 @@
-graphs = {
+graph = {
     'a': ['s', 'z'],
     's': ['a', 'x'],
     'd': ['f', 'x', 'c'],
@@ -23,12 +23,34 @@ def bfs(adj, s):
             for v in adj.get(u):
                 if level.get(v) == None:
                     level[v] = i
-                    parent[v] = s
+                    parent[v] = u
                     next.append(v)
         frontier = next
         i += 1
 
-    print(level)
+    return {
+        'level': level,
+        'parent': parent
+    }
 
 
-bfs(graphs, 's')
+def computeShortestPath(vertex, bfsResult):
+    paths = []
+    level = bfsResult.get('level')
+    parent = bfsResult.get('parent')
+
+    for v in parent:
+        path = v
+        prev = parent.get(v)
+        while prev:
+            path = f"{path}->{prev}"
+            prev = parent.get(prev)
+        step = level.get(v)
+        paths.append(f"{step}:: {path}")
+
+    return paths
+
+
+bfsResult = bfs(graph, 's')
+shortesPath = computeShortestPath('s', bfsResult)
+print(shortesPath)
