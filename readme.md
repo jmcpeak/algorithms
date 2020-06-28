@@ -42,3 +42,78 @@ graph = {
 ### Tell me more:
 
 https://www.youtube.com/watch?v=s-CYnVz-uh4
+
+## Depth First Search
+
+Suppose we want to traverse the graph ![dfsGraph](./images/dfsGraph.jpeg)
+
+### Concept:
+
+In depth first, for every node we ask "what's the next node I can go to from current node?". For every node that you can reach to from current node, you just keep following it.
+
+> In breadth first search, we made list of nodes that can be reached from current node. Then we traversed each node in this new list; in depth first, you keep following a node walking through the edges until you can no longer find new vertex or there is no more edge.
+
+Here is how we traverse the above graph:
+
+1. Start at edge `a`.
+
+   > `a.enter = 1`
+
+   > From there I can reach `b` and `d`;
+
+   - Run through `b` first (then d after b is done);
+
+     > `b.enter = 2`
+
+     - From b, you can reach `e`;
+
+       > `e.enter = 3`
+
+       - From e, reach `d`:
+
+         > `d.enter = 4`
+
+         > From d you can reach b but we already explored b. So d is done
+
+         > `d.exit = 5`
+
+       > `e.exit = 6`
+
+     > `b.exit = 7`
+
+   - Now we are back at a. From a explored b; next was d. But d just got explored too. So not needed to explore d any more. Therefore, everything that we can reach from a is now done and therefore exploring a is done too!
+
+   > `a.exit = 8`
+
+2. Next node is b which is already explored;
+3. Next is c which is not yet explored. Let's explore this node
+
+   > `c.enter = 9`
+
+   > From c we can explore e & f. But e is already done. So just need to explore f!
+
+   - Explore `f`:
+
+     > `f.enter = 10`
+
+     > From f you can only reach f which just got explored! Done exploring f
+
+     > `f.exit = 11`
+
+   > `c.exit = 12`
+
+4. `d, e, f` are next edges which are now all explored! We are done with dfs
+
+> For entry and exit, if you were to start parenthesis at entry and remove it at exit, you will have nice open and close parenthesis. You could almost follow the spacing in the above notes and build that open close parenthesis. In the graph below I have numbered the entry points with green color and exit with blue color.
+
+> Notice the edge that we start with always ends in last. (Back to order of parenthesis, inner parenthesis must be closed first before closing outer parenthesis)
+
+> Why is this numbering important? We will touch on it little below
+
+![dfsEnterExitsGraph](./images/dfsEnterExit.jpeg)
+
+### Show me the code:
+
+> In the code `gateKeeper` function keeps track of entry and exit.
+
+[2_dfs.py](./2_dfs.py)
