@@ -224,7 +224,7 @@ In the above code we have last count of forest set to 2. But what is a forest? T
 
 ![dfsTrees](./images/dfsTrees.jpeg)
 
-When we ran through DFS for our graph, we got path `a b -> e -> d`; With that we reached everything that we can reach from a; After that new path was built starting from node c and got path `c -> d`. These two path are two distinct trees, `Tree-1` and `Tree-2` that was generated from our DFS. All these trees makes a DFS forest. If you had more complicated grah, it is possible that the tree will actually branch out and have edges other then the linear path that we see here.
+When we ran through DFS for our graph, we got path `a -> b -> e -> d`; With that we reached everything that we can reach from a; After that new path was built starting from node c and got path `c -> d`. These two path are two distinct trees, `Tree-1` and `Tree-2` that was generated from our DFS. All these trees makes a DFS forest. If you had more complicated grah, it is possible that the tree will actually branch out and have edges other then the linear path that we see here.
 
 > `Tree` is a connected graph that is acyclic
 
