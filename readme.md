@@ -1,26 +1,27 @@
-# Learning algorithms!
+# Learning algorithms! <!-- omit in toc -->
 
-## Breadth First Search- [Learning algorithms!](#learning-algorithms)
-  - [Breadth First Search](#breadth-first-search)
-    - [Concept:](#concept)
-    - [Shortest path: What's the shortest path from f to s?](#shortest-path-whats-the-shortest-path-from-f-to-s)
-    - [Representing graphs in code:](#representing-graphs-in-code)
-    - [Show me the code:](#show-me-the-code)
-    - [Tell me more:](#tell-me-more)
-  - [Depth First Search](#depth-first-search)
-    - [Concept:](#concept-1)
-    - [Show me the code:](#show-me-the-code-1)
-    - [Edge Classification + forest counting:](#edge-classification--forest-counting)
-      - [Tree edges:](#tree-edges)
-      - [Back edges:](#back-edges)
-      - [Cross edges:](#cross-edges)
-    - [Forest:](#forest)
-    - [Show me the code:](#show-me-the-code-2)
-    - [Runtime for DFS](#runtime-for-dfs)
+- [Breadth First Search](#breadth-first-search)
+  - [Concept](#concept)
+  - [Shortest path: What's the shortest path from f to s?](#shortest-path-whats-the-shortest-path-from-f-to-s)
+  - [Representing graphs in code](#representing-graphs-in-code)
+  - [Show me the code](#show-me-the-code)
+  - [Tell me more](#tell-me-more)
+- [Depth First Search](#depth-first-search)
+  - [Concept](#concept-1)
+  - [Show me the code](#show-me-the-code-1)
+  - [Edge Classification + forest counting](#edge-classification--forest-counting)
+    - [Tree edges:](#tree-edges)
+    - [Back edges:](#back-edges)
+    - [Cross edges:](#cross-edges)
+  - [Forest](#forest)
+  - [Show me the code](#show-me-the-code-2)
+  - [Runtime for DFS](#runtime-for-dfs)
 
+## Breadth First Search
+ 
 Suppose we want to traverse the graph ![bfsGraph](./images/bfsGraph.jpeg)
 
-### Concept:
+### Concept
 
 1. Suppose we start at the vertex `s`; `(level = 0; parent = none)`
 2. Next question to ask is what are the `vertices` that I can reach from S? The answer is `a & x`. Assign them `level = 1 & parent = s`
@@ -34,7 +35,7 @@ Well in above steps, we kept track of parent. If you follow the parent pointer f
 
 Essentially, you should traverse the graph using BFS approach starting with the node S. Then follow the parent pointers. This will lead you to shortest path. The level value for f tells exactly how many steps is needed to go from f to s!
 
-### Representing graphs in code:
+### Representing graphs in code
 
 You can use the adjacency dict that we have used below for the graph representation. (Instead of dict, you can use list too!). For every vertex, you will store the items that it is connected to.
 
@@ -51,11 +52,11 @@ graph = {
 }
 ```
 
-### Show me the code:
+### Show me the code
 
 [1_bfs.py](./1_bfs.py)
 
-### Tell me more:
+### Tell me more
 
 https://www.youtube.com/watch?v=s-CYnVz-uh4
 
@@ -63,7 +64,7 @@ https://www.youtube.com/watch?v=s-CYnVz-uh4
 
 Suppose we want to traverse the graph ![dfsGraph](./images/dfsGraph.jpeg)
 
-### Concept:
+### Concept
 
 In depth first, for every node we ask "what's the next node I can go to from current node?". For every node that you can reach to from current node, you just keep following it.
 
@@ -128,13 +129,13 @@ Here is how we traverse the above graph:
 
 ![dfsEnterExitsGraph](./images/dfsEnterExit.jpeg)
 
-### Show me the code:
+### Show me the code
 
 > In the code `gateKeeper` function keeps track of entry and exit.
 
 [2_dfs.py](./2_dfs.py)
 
-### Edge Classification + forest counting:
+### Edge Classification + forest counting
 
 During DFS, you an do edge classification. Edges can be classified as: `Tree Edges`, `Back Edges`, `Forward Edges` and `Cross Edges`
 
@@ -208,11 +209,11 @@ Let's keep track of nodes to make edge classification. Here is how we know the e
   - Going forward, all vertices have been explored and we are done!
   - Just completed all Edge classification too!
 
-### Forest:
+### Forest
 
 ??
 
-### Show me the code:
+### Show me the code
 
 [2_dfs_edges.py](./2_dfs_edges.py)
 
