@@ -5,6 +5,7 @@
   - [Shortest path: What's the shortest path from f to s?](#shortest-path-whats-the-shortest-path-from-f-to-s)
   - [Representing graphs in code](#representing-graphs-in-code)
   - [Show me the code](#show-me-the-code)
+  - [Runtime for BFS:](#runtime-for-bfs)
   - [Tell me more](#tell-me-more)
 - [Depth First Search](#depth-first-search)
   - [Concept](#concept-1)
@@ -39,7 +40,7 @@ Essentially, you should traverse the graph using BFS approach starting with the 
 
 You can use the adjacency dict that we have used below for the graph representation. (Instead of dict, you can use list too!). For every vertex, you will store the items that it is connected to.
 
-```py
+```python
 graph = {
     'a': ['s', 'z'],
     's': ['a', 'x'],
@@ -55,6 +56,14 @@ graph = {
 ### Show me the code
 
 [1_bfs.py](./1_bfs.py)
+
+### Runtime for BFS:
+
+- In this code we need to walk through all vertices; Then for each vertices we visit their adjacency list (essentially each edge for a vertex). So the run time will be:  `total number vertices`  + `total number of edge`; This is a linear runtime
+
+```
+   O(V + E)
+```
 
 ### Tell me more
 
@@ -211,10 +220,23 @@ Let's keep track of nodes to make edge classification. Here is how we know the e
 
 ### Forest
 
-??
+In the above code we have last count of forest set to 2. But what is a forest? To see what a forest is, let's look at the diagram below:
+
+![dfsTrees](./images/dfsTrees.jpeg)
+
+When we ran through DFS for our graph, we got path `a b -> e -> d`; With that we reached everything that we can reach from a; After that new path was built starting from node c and got path `c -> d`. These two path are two distinct trees, `Tree-1` and `Tree-2` that was generated from our DFS. All these trees makes a DFS forest. If you had more complicated grah, it is possible that the tree will actually branch out and have edges other then the linear path that we see here.
+
+> `Tree` is a connected graph that is acyclic
+
 
 ### Show me the code
 
 [2_dfs_edges.py](./2_dfs_edges.py)
 
 ### Runtime for DFS
+
+- Same as BFS because we need to walk through every vertices and then for each adjaceny list (edges of vertex)
+
+```
+   O(V + E)
+```
