@@ -117,3 +117,87 @@ Here is how we traverse the above graph:
 > In the code `gateKeeper` function keeps track of entry and exit.
 
 [2_dfs.py](./2_dfs.py)
+
+### Edge Classification + forest counting:
+
+During DFS, you an do edge classification. Edges can be classified as: `Tree Edges`, `Back Edges`, `Forward Edges` and `Cross Edges`
+
+#### Tree edges:
+
+- The parent edge that leads to new edges which has not been explored yet
+
+#### Back edges:
+
+- The edges that leads to parent; self-loops, like f, are called back edges
+
+#### Cross edges:
+
+- connects different BFS forest
+
+Let's keep track of nodes to make edge classification. Here is how we know the edges will be traveresed in DFS: `a, b, e, d, c, f`;
+
+- FOREST = 1
+
+  - `a.exploring = True`
+
+    > `a->b`: TREE
+
+    > because a is marked as exploring but b does not have any note; so b must have been seen for the first time
+
+    - `b.exploring = True`
+
+      > `b->e`: TREE
+
+      - `e.exploring = True`
+
+        > `e->d`: TREE
+
+        - `d.exploring = True`
+
+          > `d->b`: BACK
+
+          > becase both are being explored. Child lead to parent!
+
+        - `d.exploring = False`
+
+      - `e.exploring = False`
+
+    - `b.exploring = False`
+
+    > `a->d`: FORWARD
+
+    > a is being explored but d is done exploring still as a part of same forest
+
+  - `a.exploring = False`
+
+- Everything reachable from A has now been explored; So FOREST = 2
+
+  - `c.exploring = True`
+
+    > `c->e`: CROSS
+
+    > because c is being explored and it led to the edge which has been explored of different forest
+
+    > `c->f`: TREE
+
+    - `f.exploring = True`
+
+      > `f->f`: BACK
+      > because both edges, f & f are being explored
+
+    - `f.exploring = False`
+
+  - `c.exploring = False`
+
+  - Going forward, all vertices have been explored and we are done!
+  - Just completed all Edge classification too!
+
+### Forest:
+
+??
+
+### Show me the code:
+
+[2_dfs_edges.py](./2_dfs_edges.py)
+
+### Runtime for DFS
