@@ -1,6 +1,22 @@
 # Learning algorithms!
 
-## Breadth First Search
+## Breadth First Search- [Learning algorithms!](#learning-algorithms)
+  - [Breadth First Search](#breadth-first-search)
+    - [Concept:](#concept)
+    - [Shortest path: What's the shortest path from f to s?](#shortest-path-whats-the-shortest-path-from-f-to-s)
+    - [Representing graphs in code:](#representing-graphs-in-code)
+    - [Show me the code:](#show-me-the-code)
+    - [Tell me more:](#tell-me-more)
+  - [Depth First Search](#depth-first-search)
+    - [Concept:](#concept-1)
+    - [Show me the code:](#show-me-the-code-1)
+    - [Edge Classification + forest counting:](#edge-classification--forest-counting)
+      - [Tree edges:](#tree-edges)
+      - [Back edges:](#back-edges)
+      - [Cross edges:](#cross-edges)
+    - [Forest:](#forest)
+    - [Show me the code:](#show-me-the-code-2)
+    - [Runtime for DFS](#runtime-for-dfs)
 
 Suppose we want to traverse the graph ![bfsGraph](./images/bfsGraph.jpeg)
 
