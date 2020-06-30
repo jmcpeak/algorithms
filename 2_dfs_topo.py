@@ -1,29 +1,29 @@
 # read the readme first!
 # note that we are using Directed graph here but could have done undirected one too. The algoritm works for
 
-# graph = {
-#     'undershirt': ['pants', 'shoes'],
-#     'pants': ['shoes', 'belt'],
-#     'belt': ['jacket'],
-#     'shirt': ['tie', 'belt'],
-#     'tie': ['jacket'],
-#     'jacket': [],
-#     'socks': ['shoes'],
-#     'shoes': [],
-#     'watch': [],
-# }
-
 graph = {
-    'shirt': ['tie', 'belt'],
-    'watch': [],
     'undershirt': ['pants', 'shoes'],
-    'socks': ['shoes'],
     'pants': ['shoes', 'belt'],
     'belt': ['jacket'],
+    'shirt': ['tie', 'belt'],
     'tie': ['jacket'],
     'jacket': [],
+    'socks': ['shoes'],
     'shoes': [],
+    'watch': [],
 }
+
+# graph = {
+#     'shirt': ['tie', 'belt'],
+#     'watch': [],
+#     'undershirt': ['pants', 'shoes'],
+#     'socks': ['shoes'],
+#     'pants': ['shoes', 'belt'],
+#     'belt': ['jacket'],
+#     'tie': ['jacket'],
+#     'jacket': [],
+#     'shoes': [],
+# }
 
 
 def dfs(adjList):
