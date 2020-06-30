@@ -53,7 +53,7 @@ def dfs(vertices, adjList):
         watch = watchMen['gateTracker'](edge)
         watch['enter']()
 
-        for adj in adjList.get(edge):
+        for adj in adjList.get(edge, []):
             if adj not in parent:
                 parent[adj] = edge
                 dfsVisit(adj)  # follow this

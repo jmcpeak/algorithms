@@ -129,7 +129,7 @@ def dfs(vertices, adjList):
         #
         classifier['markEdgeAsExploring'](edge)
 
-        for adj in adjList.get(edge):
+        for adj in adjList.get(edge, []):
             if adj not in parent:
                 parent[adj] = edge
                 classifier['classify'](edge, adj)
