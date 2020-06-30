@@ -17,6 +17,13 @@
   - [Forest](#forest)
   - [Show me the code](#show-me-the-code-2)
   - [Runtime for DFS](#runtime-for-dfs)
+- [Topological Sort: Application of DFS](#topological-sort-application-of-dfs)
+  - [Concept:](#concept-2)
+  - [Solution to the dressing problem](#solution-to-the-dressing-problem)
+    - [Graph of DFS Forest](#graph-of-dfs-forest)
+    - [Is there only one topological sort?](#is-there-only-one-topological-sort)
+  - [Show me the code:](#show-me-the-code-3)
+  - [Runtime](#runtime)
 
 ## Breadth First Search
  
@@ -240,3 +247,91 @@ When we ran through DFS for our graph, we got path `a -> b -> e -> d`; With that
 ```
    O(V + E)
 ```
+
+
+
+## Topological Sort: Application of DFS
+
+> Applies only to Directed Acyclic Graph
+> In DFS if you detect back edge at any time then, it means the graph is cyclic and therefore topolical sort cannot be done
+
+### Concept:
+
+![topoRaw](./images/topoRaw.jpeg)
+
+Lets consider this dressing problem. In order to dress up, first you have to wear undershorts and then only you can wear pants; After that you can wear shoes but before you wear shoes you must wear socks and then only shoes. The graph edges represents if there is any precursor. Watch finally is the special case where it has no edges coming to it. What that means is you can do watch step at any time during the execution
+
+Based on this graph, can we write the order that we can do things in so that everything gets done in proper order.
+
+### Solution to the dressing problem
+
+We can represent this graph as:
+
+```python
+graph = {
+  'undershirt': ['pants', 'shoes'],
+  'pants': ['shoes', 'belt'],
+  'belt': ['jacket'],
+  'shirt': ['tie', 'belt'],
+  'tie': ['jacket'],
+  'jacket': [],
+  'socks': ['shoes'],
+  'shoes': [],
+  'watch': [],
+}
+```
+
+Now we can run DFS on this one and the end result of entry and exit timer from gateKeeper is:
+
+![topRawNumbered](./images/topRawNumbered.jpeg)
+
+Lines in green is entry time and blue is exit time. If you write the items in the descending order of exit time, you will topologically sorted items. The order to do things for this graph based on exit time is:
+
+
+`watch -> socks -> shirt -> tie -> undershirt -> pants -> belt -> jacket -> shoes`
+
+If you read through these, you will realize you can dress in that order!
+
+#### Graph of DFS Forest
+
+![topoTree](./images/topoTree.jpeg)
+
+Did you notice that in this DFS Forest, first 4th tree is done; then 3rd tree, then 2nd tree and finally last tree.
+
+#### Is there only one topological sort?
+
+Is this is the only topological sort?
+
+`watch -> socks -> shirt -> tie -> undershirt -> pants -> belt -> jacket -> shoes`
+
+If we were to re-order some of the items in adjacency list you will get completely different sorting order. Here is the graph representation:
+
+```python
+graph = {
+    'shirt': ['tie', 'belt'],
+    'watch': [],
+    'undershirt': ['pants', 'shoes'],
+    'socks': ['shoes'],
+    'pants': ['shoes', 'belt'],
+    'belt': ['jacket'],
+    'tie': ['jacket'],
+    'jacket': [],
+    'shoes': [],
+}
+```
+
+The sorting order would be:
+
+`socks -> undershirt -> pants -> shoes -> watch -> shirt -> belt -> tie -> jacket`
+
+If you run through this order, you can dress up in this order too! So it is completely possible to do things in this order.
+
+### Show me the code:
+
+[2_dfs_topo.py](./2_dfs_topo.py)
+
+> The code that we saw for DFS Edge Classification + Forest counting, I just updated it to keep a list of items based on exit order. And we have topological sort done!
+
+### Runtime
+
+> Same as DFS
