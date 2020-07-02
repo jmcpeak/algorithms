@@ -201,14 +201,21 @@ print(f"Forest #: {result['getTotalForest']()}")
 print(f"Edges and forest relation: #{result['edgeBelongsToForest']()}")
 print(f"Topologically sorted Items: {result['getSortedItems']()}")
 
-# a: 1/8
-# b: 2/7
-# e: 3/6
-# d: 4/5
-# c: 9/12
-# f: 10/11
+# undershirt: 1/10
+# pants: 2/9
+# shoes: 3/4
+# belt: 5/8
+# jacket: 6/7
+# shirt: 11/14
+# tie: 12/13
+# socks: 15/16
+# watch: 17/18
 
-# Parent: {'a': None, 'b': 'a', 'e': 'b', 'd': 'e', 'c': None, 'f': 'c'}
-# Edges: {'tree': ['a->b', 'b->e', 'e->d', 'c->f'],
-#         'back': ['d->b', 'f->f'], 'forward': ['a->d'], 'cross': ['c->e']}
-# Forest  # : 2
+# Parent: {'undershirt': None, 'pants': 'undershirt', 'shoes': 'pants', 'belt': 'pants',
+#          'jacket': 'belt', 'shirt': None, 'tie': 'shirt', 'socks': None, 'watch': None}
+# Edges: {'tree': ['undershirt->pants', 'pants->shoes', 'pants->belt', 'belt->jacket', 'shirt->tie'],
+#         'back': [], 'forward': ['undershirt->shoes'], 'cross': ['tie->jacket', 'shirt->belt', 'socks->shoes']}
+# Forest  # : 4
+# # {'undershirt': 1, 'pants': 1, 'shoes': 1, 'belt': 1, 'jacket': 1, 'shirt': 2, 'tie': 2, 'socks': 3, 'watch': 4}
+# Edges and forest relation:
+# Topologically sorted Items: ['watch', 'socks', 'shirt', 'tie', 'undershirt', 'pants', 'belt', 'jacket', 'shoes']
