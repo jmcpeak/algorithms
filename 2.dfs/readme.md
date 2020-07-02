@@ -275,4 +275,4 @@ If you run through this order, you can dress up in this order too! So it is comp
 
 ### Runtime
 
-> Same as DFS
+> Same as BFS
