@@ -10,7 +10,7 @@
 
 ## Breadth First Search
  
-Suppose we want to traverse the graph ![bfsGraph](./images/bfsGraph.jpeg)
+Suppose we want to traverse the graph ![bfsGraph](../assets/bfsGraph.jpeg)
 
 ### Concept
 

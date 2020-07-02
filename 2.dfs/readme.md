@@ -19,7 +19,7 @@
 
 ## Depth First Search
 
-Suppose we want to traverse the graph ![dfsGraph](./images/dfsGraph.jpeg)
+Suppose we want to traverse the graph ![dfsGraph](../assets/dfsGraph.jpeg)
 
 ### Concept
 
@@ -84,7 +84,7 @@ Here is how we traverse the above graph:
 
 > Why is this numbering important? We will touch on it little below
 
-![dfsEnterExitsGraph](./images/dfsEnterExit.jpeg)
+![dfsEnterExitsGraph](../assets/dfsEnterExit.jpeg)
 
 ### Show me the code
 
@@ -170,7 +170,7 @@ Let's keep track of nodes to make edge classification. Here is how we know the e
 
 In the above code we have last count of forest set to 2. But what is a forest? To see what a forest is, let's look at the diagram below:
 
-![dfsTrees](./images/dfsTrees.jpeg)
+![dfsTrees](../assets/dfsTrees.jpeg)
 
 When we ran through DFS for our graph, we got path `a -> b -> e -> d`; With that we reached everything that we can reach from a; After that new path was built starting from node c and got path `c -> d`. These two path are two distinct trees, `Tree-1` and `Tree-2` that was generated from our DFS. All these trees makes a DFS forest. If you had more complicated grah, it is possible that the tree will actually branch out and have edges other then the linear path that we see here.
 
@@ -198,7 +198,7 @@ When we ran through DFS for our graph, we got path `a -> b -> e -> d`; With that
 
 ### Concept:
 
-![topoRaw](./images/topoRaw.jpeg)
+![topoRaw](../assets/topoRaw.jpeg)
 
 Lets consider this dressing problem. In order to dress up, first you have to wear undershorts and then only you can wear pants; After that you can wear shoes but before you wear shoes you must wear socks and then only shoes. The graph edges represents if there is any precursor. Watch finally is the special case where it has no edges coming to it. What that means is you can do watch step at any time during the execution
 
@@ -224,7 +224,7 @@ graph = {
 
 Now we can run DFS on this one and the end result of entry and exit timer from gateKeeper is:
 
-![topRawNumbered](./images/topRawNumbered.jpeg)
+![topRawNumbered](../assets/topRawNumbered.jpeg)
 
 Lines in green is entry time and blue is exit time. If you write the items in the descending order of exit time, you will topologically sorted items. The order to do things for this graph based on exit time is:
 
@@ -235,7 +235,7 @@ If you read through these, you will realize you can dress in that order!
 
 #### Graph of DFS Forest
 
-![topoTree](./images/topoTree.jpeg)
+![topoTree](../assets/topoTree.jpeg)
 
 Did you notice that in this DFS Forest, first 4th tree is done; then 3rd tree, then 2nd tree and finally last tree.
 
