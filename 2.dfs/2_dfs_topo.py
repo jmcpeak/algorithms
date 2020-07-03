@@ -1,5 +1,6 @@
 # read the readme first!
 # note that we are using Directed graph here but could have done undirected one too. The algoritm works for
+# directed and undirected both
 
 graph = {
     'undershirt': ['pants', 'shoes'],
