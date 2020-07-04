@@ -6,12 +6,12 @@
     - [Negative Cycles](#negative-cycles)
   - [Relaxing edge:](#relaxing-edge)
   - [Single source shortest path for Directed Ayclic Graph [DAG]](#single-source-shortest-path-for-directed-ayclic-graph-dag)
-    - [Concept](#concept-1)
+    - [Pseudocode](#pseudocode)
       - [Graph Representation in code](#graph-representation-in-code)
-    - [Pseudocode Step 1: Topological sorting](#pseudocode-step-1-topological-sorting)
-    - [Pseudocode Step 2: Initialize single source 's'](#pseudocode-step-2-initialize-single-source-s)
-    - [Pseudocode Step 3: Pass over and relax](#pseudocode-step-3-pass-over-and-relax)
-    - [Result](#result)
+      - [Pseudocode Step 1: Topological sorting](#pseudocode-step-1-topological-sorting)
+      - [Pseudocode Step 2: Initialize single source 's'](#pseudocode-step-2-initialize-single-source-s)
+      - [Pseudocode Step 3: Pass over and relax](#pseudocode-step-3-pass-over-and-relax)
+      - [Result](#result)
     - [Show me the code](#show-me-the-code)
 - [Applications of Shortest Path Algorithm](#applications-of-shortest-path-algorithm)
 
@@ -67,7 +67,7 @@ However, in this simpler graph we can see that if we were to go to B as: `s -> A
 
 Nice thing about DAGs is that they do not have cycles. This is the definition of DAG. Here is how to implement SP for DAG:
 
-#### Concept
+#### Pseudocode
 
 Here is `pseudocode` of how we will implement this code:
 
@@ -102,7 +102,7 @@ graph = {
 ```
 
 
-#### Pseudocode Step 1: Topological sorting
+##### Pseudocode Step 1: Topological sorting
 
 In [depth first search](../readme.md) we touched upon entry/exit time and using it for topological sorting. Here is what that result looks like:
 
@@ -110,7 +110,7 @@ In [depth first search](../readme.md) we touched upon entry/exit time and using 
 
 > `code:` call to function `dfs` returns topologically sorted items
 
-#### Pseudocode Step 2: Initialize single source 's'
+##### Pseudocode Step 2: Initialize single source 's'
 In our case we want to compute shortest path from the edge s to rest of vertices. So only for the vertex `s` set `d = 0` & `pi = null`. For the rest we initialize `d = infinity` and `pi = null`
 
 The result of init is filled in the digram below. Only s has value of 0 and rest are set to infinity.
@@ -119,7 +119,7 @@ The result of init is filled in the digram below. Only s has value of 0 and rest
 
 ![dagSP](./assets/dagSP.jpeg)
 
-#### Pseudocode Step 3: Pass over and relax
+##### Pseudocode Step 3: Pass over and relax
 
 Here we go over each topologically sorted vertex. For each vertex you iterate over the vertices it can reach.
 
@@ -154,7 +154,7 @@ We go through every node and repeat similar steps for relaxation. Finally we get
 > `code:` In the code this pseudo code is represented by `sp` function
 
 
-#### Result
+##### Result
 
 Here is what the `sp` function returns:
 
