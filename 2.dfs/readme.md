@@ -90,7 +90,7 @@ Here is how we traverse the above graph:
 
 > In the code `gateKeeper` function keeps track of entry and exit.
 
-[2_dfs.py](./2_dfs.py)
+[1_dfs.py](./1_dfs.py)
 
 ### Edge Classification + forest counting
 
@@ -269,7 +269,7 @@ If you run through this order, you can dress up in this order too! So it is comp
 
 ### Show me the code:
 
-[2_dfs_topo.py](./2_dfs_topo.py)
+[3_dfs_topo.py](./3_dfs_topo.py)
 
 > The code that we saw for DFS Edge Classification + Forest counting, I just updated it to keep a list of items based on exit order. And we have topological sort done!
 
